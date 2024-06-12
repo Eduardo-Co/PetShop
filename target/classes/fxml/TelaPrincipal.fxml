@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="borderPane" prefHeight="646.0" prefWidth="1114.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.petshop_db.controllers.TelaPrincipalController">
+    <children>
+        <MenuBar fx:id="menuBar" style="-fx-font-size: 16px;" useSystemMenuBar="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu fx:id="principal" text="Orçamento">
+               <items>
+                    <MenuItem fx:id="adicionarorcamento" mnemonicParsing="false" onAction="#handleAdicionarOrcamento" text="Adicionar orçamento" />
+                    <MenuItem fx:id="visualizarorcamento" mnemonicParsing="false" onAction="#handleVisualizarOrcamento" text="Visualizar orçamento" />
+               </items></Menu>
+                <Menu fx:id="clientes" onAction="#handleClientes" text="Clientes">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Acessar Clientes" />
+               </items></Menu>
+                <Menu fx:id="pet" onAction="#handlePet" text="Pet">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Acessar Pet" />
+               </items></Menu>
+                <Menu fx:id="produtos" onAction="#handleProdutos" text="Produtos">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Acessar Produtos" />
+               </items></Menu>
+                <Menu fx:id="veterinarios" onAction="#handleVeterinarios" text="Veterinários">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Acessar Veterinários" />
+               </items></Menu>
+                <Menu fx:id="racas" onAction="#handleRacas" text="Raças">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Acessar Raças" />
+               </items></Menu>
+              
+            </menus>
+        </MenuBar>
+        <AnchorPane fx:id="mainContent" layoutY="30.0" prefHeight="611.0" prefWidth="1114.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+            <children>
+                <TableView fx:id="data" layoutY="159.0" prefHeight="360.0" prefWidth="1114.0" AnchorPane.bottomAnchor="97.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="159.0">
+                    <columns>
+                        <TableColumn fx:id="idtable" prefWidth="66.0" text="ID" />
+                        <TableColumn fx:id="cpftable" prefWidth="195.0" text="CPF do cliente" />
+                        <TableColumn fx:id="quantidadetable" prefWidth="98.0" text="Quantidade" />
+                        <TableColumn fx:id="precotable" prefWidth="108.0" text="Preço" />
+                        <TableColumn fx:id="produtoidtable" prefWidth="137.0" text="Produto ID" />
+                        <TableColumn fx:id="formapagamentotable" prefWidth="211.0" text="Forma de Pagamento" />
+                        <TableColumn fx:id="datatable" minWidth="0.0" prefWidth="223.0" text="Data do Atendimento" />
+                        <TableColumn fx:id="petidtable" prefWidth="75.0" text="PetID" />
+                    </columns>
+                </TableView>
+                <ComboBox fx:id="formapagamento" layoutX="737.0" layoutY="67.0" prefHeight="25.0" prefWidth="291.0" promptText="Forma de Pagamento" AnchorPane.leftAnchor="737.0" AnchorPane.topAnchor="67.0" />
+                <TextField fx:id="quantidade" layoutX="297.0" layoutY="106.0" prefHeight="28.0" prefWidth="233.0" promptText="Quantidade" AnchorPane.leftAnchor="297.0" AnchorPane.topAnchor="106.0" />
+                <TextField fx:id="produtoid" layoutX="44.0" layoutY="107.0" prefHeight="28.0" prefWidth="220.0" promptText="Produto ID" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="107.0" />
+                <TextField fx:id="preco" layoutX="557.0" layoutY="107.0" prefHeight="28.0" prefWidth="260.0" promptText="Preço" AnchorPane.leftAnchor="557.0" AnchorPane.topAnchor="107.0" />
+                <DatePicker fx:id="datePicker" layoutX="843.0" layoutY="107.0" prefHeight="29.0" prefWidth="185.0" promptText="Data do atendimento" AnchorPane.leftAnchor="843.0" AnchorPane.topAnchor="107.0" />
+                <Button fx:id="adicionar" layoutX="20.0" layoutY="521.0" mnemonicParsing="false" onAction="#handleAdicionar" prefHeight="44.0" prefWidth="120.0" text="Adicionar" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0">
+                    <graphic>
+                        <ImageView fitHeight="41.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/CadastroNovo_32x32.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="excluir" layoutX="330.0" layoutY="521.0" mnemonicParsing="false" onAction="#handleExcluir" prefHeight="44.0" prefWidth="120.0" text="Excluir" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="330.0">
+                    <graphic>
+                        <ImageView fitHeight="41.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/CadastroExcluir_32x32.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="salvar" layoutX="177.0" layoutY="521.0" mnemonicParsing="false" onAction="#handleSalvar" prefHeight="44.0" prefWidth="120.0" text="Salvar" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="177.0">
+                    <graphic>
+                        <ImageView fitHeight="41.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/CadastroSalvar_32x32.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Text layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar uma transação" textAlignment="CENTER" wrappingWidth="1114.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="cpf" layoutX="44.0" layoutY="65.0" prefHeight="28.0" prefWidth="305.0" promptText="CPF cliente" />
+                <TextField fx:id="petid" layoutX="390.0" layoutY="65.0" prefHeight="28.0" prefWidth="317.0" promptText="PET ID" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
